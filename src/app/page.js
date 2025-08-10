@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 
-
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -56,8 +55,6 @@ export default function Home() {
               height: '3px',
               background: 'white',
               borderRadius: '2px',
-              transition: '0.3s',
-              transformOrigin: '1px',
               marginBottom: '4px',
             }}
           ></span>
@@ -67,7 +64,6 @@ export default function Home() {
               height: '3px',
               background: 'white',
               borderRadius: '2px',
-              transition: '0.3s',
               marginBottom: '4px',
             }}
           ></span>
@@ -77,17 +73,18 @@ export default function Home() {
               height: '3px',
               background: 'white',
               borderRadius: '2px',
-              transition: '0.3s',
             }}
           ></span>
         </button>
 
+        {/* Nav links */}
         <div
           style={{
             display: 'flex',
             gap: '1.5rem',
           }}
           id="nav-links"
+          className={menuOpen ? 'show' : ''}
         >
           <a href="#about" style={{ color: 'white', textDecoration: 'none' }}>
             About
@@ -148,7 +145,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Inline responsive styles */}
       <style>{`
         @media (max-width: 600px) {
           nav {
@@ -182,20 +178,6 @@ export default function Home() {
           }
         }
       `}</style>
-
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-            (() => {
-              const btn = document.getElementById('hamburger-btn');
-              const nav = document.getElementById('nav-links');
-              btn.addEventListener('click', () => {
-                nav.classList.toggle('show');
-              });
-            })();
-          `,
-        }}
-      />
     </div>
   );
 }
